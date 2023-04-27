@@ -76,7 +76,7 @@ from [GitHub releases](https://github.com/AttilaBecsvardi/pega-XMLSerde-for-Kafk
 - `XMLParseRootElementName`: the second part of the name of your Pega Parse-XML rule
 - `XMLStreamRuleName`: the name of your Pega Stream-XML rule to stream the Clipboard page to Kafka dataset, used in serialization
 - `XMLStreamXMLType`: the second part of the name of your Pega Stream-XML rule
-  <img src="images/kafka_dataset_config.png" height="50%" width="50%"/>
+  <img src="docs/images/kafka_dataset_config.png" height="50%" width="50%"/>
 
 ## Test
 TBD
