@@ -54,7 +54,7 @@ from [GitHub releases](https://github.com/AttilaBecsvardi/pega-XMLSerde-for-Kafk
 
 ### Prerequisites
 
-1. [Build](#Build) or [download](https://github.com/AttilaBecsvardi/pega-XMLSerde-for-Kafka/releases) `MyXMLSerde.jar`
+1. [Build](#Building from source) or [download](https://github.com/AttilaBecsvardi/pega-XMLSerde-for-Kafka/releases) `MyXMLSerde.jar`
 
 ### Installing MyXMLSerde.jar file
 
