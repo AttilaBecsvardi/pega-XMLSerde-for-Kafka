@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="printegrint">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../lib/printegrint.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact name="MyXMLSerde:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MyXMLSerde_jar</output-path>
+    <root id="root">
+      <element id="archive" name="MyXMLSerde.jar">
+        <element id="module-output" name="MyXMLSerde" />
+      </element>
+      <element id="library" level="project" name="guava-19.0" />
+      <element id="library" level="project" name="prpublic" />
+      <element id="library" level="project" name="commons-lang-2.6" />
+    </root>
+  </artifact>
+</component>
