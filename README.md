@@ -20,37 +20,30 @@ The component has been tested with the following platform versions:
 Prerequisites:
 
 1. Java (JDK) 8 or later.
-2. Apache Maven 3.6+
 3. Internet access
 4. Git client
+5. Access to Pega core Build Distribution Image ([more details](https://support.pega.com/discussion/where-can-i-fing-prpublicjar-file-server?))
 
-In order to build the component from source, you need to have access to **coreBuildDistributionImage** and have **Gradle 4.8** or higher.
-
+Steps:
 1. Extract **coreBuildDistributionImage.zip/archives/pegadbinstall-classes.zip** to a temporary folder
-2. Extract **coreBuildDistributionImage.zip/archives/prweb.war** to a temporary folder
-3. Copy the following jar files to the **libs** folder:
+2. Copy the following jar files to the **libs** folder:
    1. pegadbinstall-classes/lib/pega/prpublic.jar → libs/prpublic.jar
-   2. pegadbinstall-classes/lib/pega/prprivate.jar → libs/prprivate.jar
-   3. pegadbinstall-classes/lib/pega/prprivcommon.jar → libs/prprivcommon.jar
-   4. pegadbinstall-classes/lib/pega/printegrext.jar → libs/printegrext.jar
-   5. pegadbinstall-classes/lib/pega/printegrint.jar → libs/printegrint.jar
-   6. pegadbinstall-classes/lib/pega/prenginext.jar → libs/prenginext.jar
-   7. pegadbinstall-classes/lib/pega/prcommons-lang.jar → libs/prcommons-lang.jar
-   8. pegadbinstall-classes/lib/pega/pricu2jdk.jar → libs/pricu2jdk.jar
-   9. pegadbinstall-classes/lib/pega/d-node-x.y.x.jar → libs/d-node.jar
-   10. prweb.war/WEB-INF/lib/prbootstrap-x.y.x.jar → libs/prbootstrap.jar
-   11. prweb.war/WEB-INF/lib/prbootstrap-api-x.y.x.jar → libs/prbootstrap-api.jar
-4. Run `./gradlew createWrapperJar` to generate **build/libs/schema-registry-integration-1.0.0.jar** component jar, which can be installed as a component
+   2. pegadbinstall-classes/lib/pega/printegrint.jar → libs/printegrint.jar
+   3. pegadbinstall-classes/lib/pega/guava-19.0.jar → libs/guava-19.0.jar
+   4. pegadbinstall-classes/lib/pega/prcommons-lang.jar → libs/prcommons-lang.jar
 
 Build
 
 ```
-git clone https://github.com/AttilaBecsvardi/pega-jdbc-driver pega-jdbc-driver
-cd pega-jdbc-driver
-mvn package
+git clone https://github.com/AttilaBecsvardi/pega-XMLSerde-for-Kafka pega-XMLSerde-for-Kafka
+cd pega-XMLSerde-for-Kafka
+mkdir bin
+javac -proc:none -target 1.8 -d bin -cp ../../libs/commons-lang-2.6.jar:../../libs/guava-19.0.jar:../../libs/printegrint.jar:../../lib/prpublic.jar src/io/github/attilabecsvardi/pega/kafka/XMLSerde.java
+mkdir jar
+jar cfm jar/MyXMLSerde.jar src/META-INF/MANIFEST.MF -C bin .
 ```
 
-Binaries are in `target` folder. You will need the Uber JAR, it's called `MyXMLSerde.jar`.
+The `MyXMLSerde.jar` are located in the `jar` folder.
 
 ## Download
 
@@ -76,17 +69,17 @@ from [GitHub releases](https://github.com/AttilaBecsvardi/pega-XMLSerde-for-Kafk
 ### Configuration
 1. Log in to DevStudio
 2. Create a regular data set of type Kafka
-3. Configure the `Message Format` section to use the Custom message format
+3. Configure the **Message Format** section to use the Custom message format
 4. Specify the fully qualified classname of XMLSerde class, enter `io.github.attilabecsvardi.pega.kafka.XMLSerde`
 5. Specify additional configuration options to be passed to XMLSerde configure method, it requires the following parameters:
-  - `XMLParseRuleName`: the name of your Pega Parse-XML rule to parse the XML message from Kafka dataset, used in deserialization
-  - `XMLParseRootElementName`: the second part of the name of your Pega Parse-XML rule
-  - `XMLStreamRuleName`: the name of your Pega Stream-XML rule to stream the Clipboard page to Kafka dataset, used in serialization
-  - `XMLStreamXMLType`: the second part of the name of your Pega Stream-XML rule
-<img src="images/kafka_dataset_config.png" height="50%" width="50%"/>
+- `XMLParseRuleName`: the name of your Pega Parse-XML rule to parse the XML message from Kafka dataset, used in deserialization
+- `XMLParseRootElementName`: the second part of the name of your Pega Parse-XML rule
+- `XMLStreamRuleName`: the name of your Pega Stream-XML rule to stream the Clipboard page to Kafka dataset, used in serialization
+- `XMLStreamXMLType`: the second part of the name of your Pega Stream-XML rule
+  <img src="images/kafka_dataset_config.png" height="50%" width="50%"/>
 
-##Test
-
+## Test
+TBD
 
 ## References
 
