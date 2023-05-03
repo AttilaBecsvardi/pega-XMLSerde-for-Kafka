@@ -81,6 +81,9 @@ from [GitHub releases](https://github.com/AttilaBecsvardi/pega-XMLSerde-for-Kafk
 ## Test
 TBD
 
+## Known issues
+* Parse-XML rule issue: The unit tests were successful, but when attempting to use the custom dataset in a data flow, the system was unable to execute the Parse-XML rule. It appears to be related to an old error with the XML parser. To fix the issue, you need to enable the old assembler by using the Pega-IntegrationEngine•SwitchToOldAssembler dynamic system setting (DSS).
+
 ## References
 
 - [Kafka custom serializer/deserializer implementation](https://support.pega.com/discussion/kafka-custom-serializerdeserializer-implementation)
